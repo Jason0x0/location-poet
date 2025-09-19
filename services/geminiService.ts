@@ -1,8 +1,9 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 import type { PoemData } from '../types';
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
+// Use the API key provided by the user to fix the runtime error.
+const API_KEY = "AIzaSyBC4BCN-tYaBXoo7P-SWcUiFnZNBdank7E";
+const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 const poemGenerationSchema = {
   type: Type.OBJECT,
