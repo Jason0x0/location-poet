@@ -1,0 +1,5 @@
+{
+  "name": "Location-Based Poetry",
+  "description": "Generates a short, abstract, surrealist poem based on the user's current city, landmarks, and weather, offering a poetic perspective on their surroundings.",
+  "requestFramePermissions": []
+}
