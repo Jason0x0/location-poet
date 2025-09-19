@@ -1,12 +1,6 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import type { PoemData } from '../types';
 
-if (!process.env.API_KEY) {
-  throw new Error("API_KEY environment variable not set");
-}
-
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 const poemGenerationSchema = {
   type: Type.OBJECT,
   properties: {
@@ -29,6 +23,12 @@ const poemStyles = [
 
 
 export const generatePoemFromCoords = async (lat: number, lon: number): Promise<PoemData> => {
+  if (!process.env.API_KEY) {
+    throw new Error("API_KEY is not configured. Please add it to your environment variables.");
+  }
+
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+
   try {
     const selectedStyle = poemStyles[Math.floor(Math.random() * poemStyles.length)];
 
